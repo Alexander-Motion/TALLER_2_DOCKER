@@ -9,4 +9,5 @@ COPY app.py .
 
 EXPOSE 8080
 
-CMD ["python", "app.py"]
+# Usamos gunicorn para servir la aplicación Flask (app.py) en el puerto 8080
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]
